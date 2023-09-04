@@ -1,7 +1,21 @@
 <section class="inner">
 	<h2 class="section-ttl">会員情報編集</h2>
 	<%= form_for(@customer, url: update_information_path) do |f| %>
-		<%= render 'layouts/error_messages', resource: @customer %>
+		 <% if @customer.errors.any? %>
+		  <div id="error_explanation">
+		    <h2>
+		      <%= I18n.t("errors.messages.not_saved",
+		                 count: @customer.errors.count,
+		                 resource: @customer.class.model_name.human.downcase)
+		       %>
+		    </h2>
+		    <ul>
+		      <% @customer.errors.full_messages.each do |message| %>
+		        <li><%= message %></li>
+		      <% end %>
+		    </ul>
+		  </div>
+		<% end %>
 		<table class="customer_info customer_form">
 			<thead>
 				<th></th>
