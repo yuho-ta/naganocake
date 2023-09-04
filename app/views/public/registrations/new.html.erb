@@ -1,4 +1,19 @@
-    <%= form_with model: @customer, url: registration_path(resource_name), local: true do |f| %>
+   <% if @customer.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= I18n.t("errors.messages.not_saved",
+                 count: @customer.errors.count,
+                 resource: @customer.class.model_name.human.downcase)
+       %>
+    </h2>
+    <ul>
+      <% @customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+    <%= form_with model: @customer, url: customer_registration_path do |f| %>
     
     <table>
       <thead>
@@ -43,7 +58,7 @@
         </tr>
         <tr>
           <td></td>
-          <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+          <td colspan="2"><%= f.submit "新規登録"%></td>
         </tr>
       </tbody>
     </table>

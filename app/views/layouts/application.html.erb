@@ -22,7 +22,6 @@
             <li><%= link_to 'ジャンル一覧'%></li>
             <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
           <% elsif customer_signed_in? %>
-            <p>ようこそ、<%= current_customer.full_name %>さん!</p>
             <li><%= link_to 'マイページ', mypage_path %></li>
             <li><%= link_to '商品一覧'%></li>
             <li><%= link_to 'カート'%></li>
