@@ -1,0 +1,44 @@
+<section>
+	<h2>商品詳細</h2>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th></th>	
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>商品名</td>
+					<td><%= @item.name %></td>
+				</tr>
+				<tr>
+					<td>商品説明</td>
+					<td><%= @item.introduction %></td>
+				</tr>
+				<tr>
+					<td>ジャンル</td>
+					<td><%= link_to @item.genre.name, admin_items_path(genre_id: @item.genre_id), class: "underline" %></td>
+				</tr>
+				<tr>
+					<td>税抜価格</td>
+					<td><%= @item.price %>円</td>
+				</tr>
+				<tr>
+					<td>販売ステータス</td>
+					<td>
+						<% if @item.is_active? %>
+							<span class="text-active">販売中</span>
+						<% else %>
+							<span class="text-invalid">販売停止中</span>							
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<%= link_to "新規登録する", new_admin_item_path, class: "btn btn-success" %>
+		</div>
+	</div>
+</section>

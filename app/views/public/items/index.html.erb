@@ -1,0 +1,11 @@
+<div class="items">
+	<% @items.each do |item| %>
+	
+			<%= image_tag item.get_image, format: "jpeg", fallback: "no-image.png" %>
+			<p><%= item.name %></p>
+			<p>
+				<%= item.with_tax_price %>円 
+			</p>
+		<% end %>
+	<% end %>
+</div>
