@@ -5,6 +5,7 @@
 		<th>会員ID</th>
 		<th>名前</th>
 		<th>フリガナ</th>
+		<th>メールアドレス</th>
 		<th>会員ステータス</th>
 		
 	</thead>
@@ -14,6 +15,7 @@
 				<td><%= customer.id %></td>
 				<td><%= customer.full_name %></td>
 				<td><%= customer.full_name_kana %></td>
+				<td><%= customer.email %></td>
 				<td>
 					<% if customer.is_active? %>
 						<span>有効</span>	
