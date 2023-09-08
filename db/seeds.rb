@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(
-  email: "d@d",
+  email: "aaaa@aaaa",
   password: "aaaaaa"
 )
 Genre.create!(
@@ -40,7 +40,7 @@ Item.create!(
 		name: "ロールケーキ",
 		introduction: "長野県産の山葵を生地とクリームに使ったロールケーキです。",
 		price: 1000,
-		is_active: 0,
+		is_active: true,
     
 	},
 	{
@@ -48,7 +48,7 @@ Item.create!(
 		name: "クッキー",
 		introduction: "長野県安曇野市で採れた山葵を粉末にし生地に混ぜて作ったクッキーです。程よい甘しょっぱさでお酒のおつまみにもなります。",
 		price: 1000,
-		is_active: 0,
+		is_active: true,
    
 	}
 ])

@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
     put 'customers/information' => 'customers#update'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw_customer'
-    resources :items, only: [:index, :show]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
+    resources :items, only: [:index, :show] do
+      resources :cart_items, only: [:create, :update, :destroy]
+    end
+    resources :cart_items, only: [:index]
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
