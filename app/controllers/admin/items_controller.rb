@@ -1,14 +1,14 @@
 class Admin::ItemsController < ApplicationController
   before_action :ensure_item, only: [:show, :edit, :update]
-
-  def new
-    @item = Item.new
-  end
-
+  
   def index
     @items = Item.all
   end
-
+  
+  def new
+    @item = Item.new
+  end
+  
   def create
     @item = Item.new(item_params)
     byebug
