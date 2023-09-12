@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     belongs_to :genre
     has_many :order_details
     has_one_attached :image
-    
+    scope :where_genre_active, -> { joins(:genre).where(genres: { is_active: true }) }
     def get_image(*size)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no-image.png')
